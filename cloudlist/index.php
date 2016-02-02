@@ -1,45 +1,17 @@
 <?php
 /*
- * simple cloud list server script for XBSlink
-* Version v1.9
-* by Oliver Seuffert 2012
-*
-* php sqlite3 plugin is needed
-*
-*  Changelog:
-*  v1.9
-*   - changed to MySQL database, TIMESTAMP in DB
-*  v1.8
-*   - added check for minimum client version
-*  v1.7.1
-*   - bugfix in updateNode
-*  v1.7
-*   - send nodelist to client on UPDATE
-*  v1.6.1
-*   - serious bugfix in function joinCloud
-*  v1.6
-*   - new handling when client joins a cloud
-*   - new GET param getallnodes for join/create cloud
-*   - rejoining known client bug fixed, known UUID is send back
-*  v1.5.1
-*   - bug fix in function joinCloud
-*  v1.5
-*   - only "open port" clients can create clouds
-*  v1.4.1
-*   - case insensitve sort for cloud names
-*  v1.4
-*   - added PING to nodes on join
-*  v1.3
-*   - added UDP code for HELLO message
-*   - changed TABLE layout, added "reachable" column to nodes
-*   - on join, try to return a reachable node
-*  v1.2
-*   - added STATS command
-*  v1.1
-*   - added detection of privat IP subnets in announced IPs
-*  v1.0
-*   - initial release
+* Simple CloudList Server for XBSlink
+* by Oliver Seuffert, Maëllig Desmottes | 2012-2016
 */
+
+//-------------------------------
+// ONLY MODIFY THESE!!
+define('DB_SERVER', 	'INSERT_SERVER_NAME');	// Localhost if the SQL server is the same as the machine
+define('DB_NAME', 	'INSERT_DB_NAME');	// Database Name
+define('DB_USERNAME', 	'INSERT_USERNAME');	// Database Account Name
+define('DB_PASSWORD', 	'INSERT_PASSWORD');	// Database Account Password
+// DON'T GO FURTHER!!
+//-------------------------------
 
 // GET parameters
 define('PARAM_CMD', 		'cmd');
@@ -62,13 +34,8 @@ define('CMD_STATS',		'STATS');
 define('CMD_SENDHELLO',	'SENDHELLO');
 
 // DB settings
-define('DB_FILENAME',	'XBSlink_clouds.sqlite3');
 define('TABLE_CLOUDS', 	'clouds');
 define('TABLE_NODES', 	'nodes');
-define('DB_SERVER', 	'INSERT_SERVER_NAME');
-define('DB_NAME', 		'INSERT_DB_NAME');
-define('DB_USERNAME', 	'INSERT_USERNAME');
-define('DB_PASSWORD', 	'INSERT_PASSWORD');
 
 // misc settings
 define('MIN_CLOUDNAME_LENGTH', 2);
