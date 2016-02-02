@@ -397,7 +397,7 @@ class xbslink_cloudlist_server
 		{
 			socket_sendto($socket, $buffer_ping, strlen($buffer_ping), 0, $ip, intval($port));
 			$ep = error_reporting(0);
-			$bytes = socket_recvfrom ($socket, &$udp_reply, 100, 0, &$from_addr, &$from_port);
+			$bytes = socket_recvfrom ($socket, $udp_reply, 100, 0, $from_addr, $from_port);
 			error_reporting($ep);
 		}
 		socket_close($socket);
