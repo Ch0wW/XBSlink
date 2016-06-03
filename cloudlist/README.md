@@ -11,7 +11,7 @@ This tutorial has been done using a Debian-Based distribution (Debian, Ubuntu, L
 0) In order to make sure others will be able to join your service, open your Web Port (80 TCP)!
 
 1) Install the required services:
-apt-get update && apt-get upgrade -y && apt-get install apache2 php5 php-mysql -y
+apt-get update && apt-get upgrade -y && apt-get install apache2 php5 php5-mysql -y
 
 2a) Install MariaDB (more optimised than MySQL)
 Please refer yourself to this link in order to install it:
@@ -22,11 +22,11 @@ apt-get install mysql-server -y
 
 Whatever the step taken, don't forget to take note of the account, password, and database you'll use.
 
-3) Open index.php, and modify the following lines with the informations provided:
-define('DB_SERVER', 	'INSERT_SERVER_NAME'); // Set it to localhost, or your remote SQL Database (if having any)
-define('DB_NAME', 		'INSERT_DB_NAME');    // The name of the Database
-define('DB_USERNAME', 	'INSERT_USERNAME'); // Your account's Name
-define('DB_PASSWORD', 	'INSERT_PASSWORD'); // Your account's Password.
+3) Open index.php, and modify the following lines with the informations provided:<br />
+define('DB_SERVER', 	'INSERT_SERVER_NAME'); // Set it to localhost, or your remote SQL Database (if having any)<br />
+define('DB_NAME', 		'INSERT_DB_NAME');    // The name of the Database<br />
+define('DB_USERNAME', 	'INSERT_USERNAME'); // Your account's Name<br />
+define('DB_PASSWORD', 	'INSERT_PASSWORD'); // Your account's Password.<br />
 
 4) Put the file into /var/www .
 
